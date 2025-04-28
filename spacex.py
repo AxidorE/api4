@@ -4,7 +4,7 @@ from download import download_image
 from dotenv import load_dotenv
 
 
-def spacex_images(launch_id):
+def get_spacex_images(launch_id):
     url_space = f"https://api.spacexdata.com/v5/launches/{launch_id}"
 
     response = requests.get(url_space)
@@ -17,7 +17,7 @@ def spacex_images(launch_id):
 def main():
     load_dotenv()
     launch_id = os.getenv("LAUNCH_ID", "5eb87d47ffd86e000604b38a")
-    spacex_images(launch_id)
+    get_spacex_images(launch_id)
 
 
 if __name__ == "__main__":

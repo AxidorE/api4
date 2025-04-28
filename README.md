@@ -41,6 +41,7 @@ python spacex.py
 NASA_API_KEY = "nasa-token"
 TG_TOKEN = "bot-token"
 TG_CHAT_ID = "@chat_id"
+LAUNCH_ID = "ID запуска SpaceX"
 ```
 
 Получить токен  NASA_API_KEY можно на сайте NASA. 

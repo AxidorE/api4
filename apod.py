@@ -4,7 +4,6 @@ from urllib.parse import unquote, urlparse
 from download import download_image
 from dotenv import load_dotenv
 
-
 def get_extension(url):
     decoded_url = unquote(url)
     parsed_url = urlparse(decoded_url)
@@ -13,9 +12,10 @@ def get_extension(url):
     return filename, extension
 
 
-def get_nasa_apod_image(nasa_token):
+def get_nasa_apod_images(nasa_token):
+    count = 30
     url = f"https://api.nasa.gov/planetary/apod"
-    params = {"api_key": nasa_token, "count": 30}
+    params = {"api_key": nasa_token, "count": count}
     response = requests.get(url, params=params)
     response.raise_for_status()
     nasa_urls = response.json()
@@ -29,7 +29,7 @@ def get_nasa_apod_image(nasa_token):
 def main():
     load_dotenv()
     nasa_token = os.environ["NASA_API_KEY"]
-    get_nasa_apod_image(nasa_token)
+    get_nasa_apod_images(nasa_token)
 
 
 if __name__ == "__main__":
